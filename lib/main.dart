@@ -42,8 +42,6 @@ class _MyHomePageState extends State<MyHomePage> {
     print("API Key: $apiKey");
     print("API Secret: $apiSecret");
     SingularConfig config = SingularConfig(apiKey, apiSecret);
-    config.waitForTrackingAuthorizationWithTimeoutInterval = 60;
-    config.clipboardAttribution = true;
     config.singularLinksHandler = (SingularLinkParams params) {
       print("Deeplink: ${params.deeplink}");
       print("Passthrough: ${params.passthrough}");
