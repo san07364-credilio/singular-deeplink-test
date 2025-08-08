@@ -3,6 +3,8 @@ package com.novio.customer
 import android.content.Intent
 import com.singular.flutter_sdk.SingularBridge
 import io.flutter.embedding.android.FlutterActivity
+import co.ab180.airbridge.flutter.AirbridgeFlutter
+
 
 class MainActivity: FlutterActivity() {
     override fun onNewIntent(intent: Intent) {
@@ -11,5 +13,11 @@ class MainActivity: FlutterActivity() {
             setIntent(intent)
             SingularBridge.onNewIntent(intent)
         }
+        this.intent = intent
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AirbridgeFlutter.trackDeeplink(intent)
     }
 }

@@ -1,3 +1,4 @@
+import 'package:airbridge_flutter_sdk/airbridge_flutter_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:singular_flutter_sdk/singular.dart';
@@ -54,7 +55,21 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     };
     Singular.start(config);
+    airBridgeInit();
     super.initState();
+  }
+
+  void airBridgeInit() {
+    Airbridge.setOnDeeplinkReceived((deeplink) {
+      debugPrint('Airbridge deeplink: $deeplink');
+      setState(() {
+        this.deeplink = deeplink;
+      });
+    });
+
+    Airbridge.setOnAttributionReceived((result) {
+      debugPrint('Airbridge Attribution received: $result');
+    });
   }
 
   @override
