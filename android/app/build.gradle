@@ -53,6 +53,12 @@ android {
             signingConfig = signingConfigs.release
         }
     }
+
+    dependencies {
+//        implementation "io.airbridge:sdk-android:4.7.0"
+        implementation 'com.singular.sdk:singular_sdk:12.0.9'
+        implementation 'io.github.cdimascio:dotenv-kotlin:6.5.1'
+    }
 }
 
 flutter {

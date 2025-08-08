@@ -1,3 +1,4 @@
+// import 'package:airbridge_flutter_sdk/airbridge_flutter_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:singular_flutter_sdk/singular.dart';
@@ -43,12 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
     print("API Secret: $apiSecret");
     SingularConfig config = SingularConfig(apiKey, apiSecret);
     config.singularLinksHandler = (SingularLinkParams params) {
-      print("Deeplink: ${params.deeplink}");
-      print("Passthrough: ${params.passthrough}");
-      print("IsDeferred: ${params.isDeferred}");
-      print("URL Parameters: ${params.urlParameters}");
-      print("Passthrough: ${params.passthrough}");
-
+      print('Deeplink handle triggered $params');
       setState(() {
         deeplink = params.deeplink;
       });
